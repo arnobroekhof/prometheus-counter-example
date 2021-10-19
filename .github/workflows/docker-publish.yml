@@ -5,6 +5,7 @@ on:
     paths-ignore:
       - '.gitignore'
       - 'deploy/**'
+      - 'README.md'
     branches:
       - main
 

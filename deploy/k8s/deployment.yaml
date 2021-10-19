@@ -14,10 +14,13 @@ spec:
     metadata:
       annotations:
         prometheus.io/scrape: 'true'
-        prometheus.io/port: '8080'
+        prometheus.io/port: '9000'
       labels:
         app: prometheus-counter-example
     spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
       containers:
         - name: prometheus-counter-example
           image: ghcr.io/arnobroekhof/prometheus-counter-example:main
