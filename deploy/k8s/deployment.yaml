@@ -12,6 +12,9 @@ spec:
       app: prometheus-counter-example
   template:
     metadata:
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '8080'
       labels:
         app: prometheus-counter-example
     spec:
