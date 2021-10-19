@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-counter-example
+  namespace: default
+  labels:
+    app: prometheus-counter-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-counter-example
+  template:
+    metadata:
+      labels:
+        app: prometheus-counter-example
+    spec:
+      containers:
+        - name: prometheus-counter-example
+          image: ghcr.io/arnobroekhof/prometheus-counter-example:main
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
+
+          ports:
+            - containerPort: 9000
